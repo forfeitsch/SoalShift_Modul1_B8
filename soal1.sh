@@ -10,9 +10,3 @@ do
 	mv "new$file" "$file"
 done
 
-cd ..
-rm nature.zip 
-zip -r nature.zip nature
-rm -r nature
-
-
