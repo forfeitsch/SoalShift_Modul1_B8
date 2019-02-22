@@ -96,6 +96,21 @@ echo $newPass > $fname
         - setelah huruf z akan kembali ke huruf a
         - Backup file syslog setiap jam.
         - dan buatkan juga bash script untuk dekripsinya.
+i. Untuk Encrypt (source codenya ada di [sini](https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal4-e.sh))
+ * Buat script bash encrypt terlebih dahulu
+ * Extract jam dari ```date``` untuk membuat key dari enkripsi tersebut
+ * Extract jam:menit tanggal-bulan-tahun dari ```date``` untuk membuat nama file
+ * Lalu encrypt file syslog tersebut dengan key dari langkah 2
+ * Setelah itu simpan file encrypt tersebut dengan format yang telah dibuat di langkah 3
+ * Jangan lupa buat cron jobnya sesuai soal seperti dibawah ini
+```0 * * * * /bin/bash /home/sisop2019/prak_mod1/soal4/soal4-e.sh```
+
+ii. Untuk Decrypt (source codenya ada di [sini](https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal4-d.sh))
+ * Buat script bash Decrypt terlebih dahulu
+ * Simpan nama filenya
+ * Extract keynya dari nama file yang sudah di encrypt
+ * Lalu decrypt file tersebut dengan key yang ada di langkah 3
+ * Setelah itu simpan file encrypt tersebut dengan nama file yang telah disimpan di langkah 2
         
 5. Buatlah sebuah script bash untuk menyimpan record dalam syslog yang memenuhi kriteria berikut:
         - Tidak mengandung string “sudo”, tetapi mengandung string “cron”, serta buatlah pencarian stringnya tidak bersifat case sensitive, sehingga huruf kapital atau tidak, tidak menjadi masalah.
