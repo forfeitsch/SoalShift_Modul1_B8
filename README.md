@@ -50,35 +50,7 @@ done
 echo $newPass > $fname
 ```
 
-* Dari langkah-langkah di atas, akan terbentuk code seperti ini:
-```
-#!/bin/bash
-
-makePassword() {
-    newPass=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 12 | head -n 1)
-}
-
-fname=""
-i=1
-while [ true ]
-do
-    check=`ls "password"$i".txt" 2> /dev/null`
-    if [ ${#check} == 0 ]
-    then
-        fname="password"$i".txt"
-        break
-    fi
-    i=`expr $i + 1`
-done
-makePassword
-passCheck=`grep -w $newPass password*.txt 2> /dev/null`
-while [ ${#passCheck} != 0 ]
-do
-    makePassword
-    passCheck=`grep -w $newPass password*.txt 2> /dev/null`
-done
-echo $newPass > $fname
-```
+* Dari langkah-langkah di atas, akan terbentuk code seperti [ini](https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal1.sh)
 
 4. Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tanggal-bulan-tahun”. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut:
         - Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14.
