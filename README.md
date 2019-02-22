@@ -18,7 +18,35 @@ Observasi : Kami melakukan pengamatan terhadap soal ini, lalu kami dapatkan bahw
    * Tentukan negara dengan penjualan(quantity) terbanyak pada tahun 2012.
    * Tentukan tiga product line yang memberikan penjualan(quantity) terbanyak pada soal poin a.
    * Tentukan tiga product yang memberikan penjualan(quantity) terbanyak berdasarkan tiga product line yang didapatkan pada soal poin b.
-        
+### **Penyelesaian**
+a. Script AWK yang akan digunakan akan terlihat seperti ini:
+```
+awk -F "," '{if ($7 == 2012) i[$1]+=$10} END {for (x in i) if(max<i[x]) {max=i[x]; country=x} print max, country}' /home/forfeitsch/sisop2019/prak_mod1/WA_Sales_Products_2012-14.csv
+```
+  * ```if($7=="2012") a[$1]+=$10;``` untuk menghitung quantity setiap negara pada tahun 2012
+  * ```for (x in i) if(max<i[x]) {max=i[x]; country=x}``` untuk menentukan quantity terbanyak
+  * ```print max, country``` untuk menampilkan nama negara dengan quantity terbanyak
+ 
+b. Script AWK yang akan digunakan akan terlihat seperti ini:
+```
+awk -F "," '{if ($1 == "United States" && $7 == 2012) j[$4]+=$10} END {for (x in j) {print j[x], x}}' /home/forfeitsch/sisop2019/prak_mod1/WA_Sales_Products_2012-14.csv | sort -nr | head -n 3 | awk '{print $2" "$3}'
+```
+  * ```if ($1 == "United States" && $7 == 2012) j[$4]+=$10``` untuk menghitung quantity di negara United States (output dari soal 2a) pada tahun 2012
+  * ```sort -nr``` untuk mengurutkan dari yang terbanyak
+  * ```head -n 3``` untuk mengambil 3 teratas
+  * ```awk '{print $2" "$3}``` untuk menampilkan 3 product line terbesar
+  
+c. Script AWK yang akan digunakan akan terlihat seperti ini:
+```
+awk -F "," '{if ($1 == "United States" && $7 == 2012 && ($4 == "Personal Accessories" || $4 == "Camping Equipment" || $4 == "Outdoor Protection")) k[$6]+=$10} END {for (x in k) {print k[x], x}}' /home/forfeitsch/sisop2019/prak_mod1/WA_Sales_Products_2012-14.csv | sort -nr | head -n 3 | awk '{print $2" "$3}'
+```
+  * ```if ($1 == "United States" && $7 == 2012 && ($4 == "Personal Accessories" || $4 == "Camping Equipment" || $4 == "Outdoor Protection"``` untuk menghitung quantity product dari product-product line hasil jawaban dari soal 2b
+  * ```sort -nr``` untuk mengurutkan dari yang terbanyak
+  * ```head -n 3``` untuk mengambil 3 teratas
+  * ```awk '{print $2" "$3}``` untuk menampilkan 3 product line terbesar
+  
+Source code utuhnya dapat dilihat di [sini].(https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal2.sh)
+
 3. Buatlah sebuah script bash yang dapat menghasilkan password secara acak sebanyak 12 karakter yang terdapat huruf besar, huruf kecil, dan angka. Password acak tersebut disimpan pada file berekstensi .txt dengan ketentuan pemberian nama sebagai berikut:
    * Jika tidak ditemukan file password1.txt maka password acak tersebut disimpan pada file bernama password1.txt
    * Jika file password1.txt sudah ada maka password acak baru akan disimpan pada file bernama password2.txt dan begitu seterusnya.
