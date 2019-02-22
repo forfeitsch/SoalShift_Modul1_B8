@@ -118,7 +118,7 @@ echo $newPass > $fname
         - Jumlah field (number of field) pada baris tersebut berjumlah kurang dari 13.
         - Masukkan record tadi ke dalam file logs yang berada pada direktori /home/[user]/modul1.
         - Jalankan script tadi setiap 6 menit dari menit ke 2 hingga 30, contoh 13:02, 13:08, 13:14, dst.
-
+### **Penyelesaian**
 Observasi : Kami melakukan pengamatan terhadap soal ini, lalu kami dapatkan bahwa soal ini bermaksud untuk kita menyimpan record dalam syslog dan melakukan beberapa gubahan seperti string dari log tersebut tidak mengandung "sudo" dan membuat case sensitive, membatasi jumlah field kurang dari 13. lalu memasukkan record tadi ke dalam direktori /home/[user]/modul1 dan menjalankan script tersebut dengan waktu 6 menit, dari menit ke 2.
 
 * Kami mengambil isi dari file syslog yang tidak mengandung string “sudo”, tetapi mengandung string “cron”, tidak case sensitive dan jumlah field (kolom) pada syslog harus berjumlah kurang dari 13 dengan menggunakan syntax awk '(!(/[sS][uU][dD][oO]/)&&(/[cC][rR][oO][nN]/)&&(NF<13))' /var/log/syslog. Kemudian kita memasukkan record yang telah terpilih kedalam file yang disimpan di direktori /home/[user]/modul1.  [ini](https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal5.sh) adalah Source codenya
