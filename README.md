@@ -3,7 +3,7 @@
 
 1. Anda diminta tolong oleh teman anda untuk mengembalikan filenya yang telah dienkripsi oleh seseorang menggunakan bash script, file yang dimaksud adalah nature.zip. Karena terlalu mudah kalian memberikan syarat akan membuka seluruh file tersebut jika pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari.
 > Hint: Base64, Hexdump
-
+### **Penyelesaian**
 Observasi : Kami melakukan pengamatan terhadap soal ini, lalu kami dapatkan bahwa soal ini bermaksud untuk kita mengekstrak folder lalu men-decrypt file tersebut. Lalu script ini akan dijalankan sesuai dengan crontab yang ditentukan dalam soal
 	
 * Pertama, kami melakukan cd ke folder soal1, lalu kami unzip file nature.zip dan cd lagi ke folder yang telah di unzip tersebut
@@ -45,7 +45,7 @@ awk -F "," '{if ($1 == "United States" && $7 == 2012 && ($4 == "Personal Accesso
   * ```head -n 3``` untuk mengambil 3 teratas
   * ```awk '{print $2" "$3}``` untuk menampilkan 3 product line terbesar
   
-Source code utuhnya dapat dilihat di [sini].(https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal2.sh)
+Source code utuhnya dapat dilihat di [sini](https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal2.sh).
 
 3. Buatlah sebuah script bash yang dapat menghasilkan password secara acak sebanyak 12 karakter yang terdapat huruf besar, huruf kecil, dan angka. Password acak tersebut disimpan pada file berekstensi .txt dengan ketentuan pemberian nama sebagai berikut:
    * Jika tidak ditemukan file password1.txt maka password acak tersebut disimpan pada file bernama password1.txt
@@ -88,7 +88,7 @@ done
 echo $newPass > $fname
 ```
 
-* Dari langkah-langkah di atas, akan terbentuk code seperti [ini].(https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal3.sh)
+* Dari langkah-langkah di atas, akan terbentuk code seperti [ini](https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal3.sh).
 
 4. Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tanggal-bulan-tahun”. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut:
         - Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14.
