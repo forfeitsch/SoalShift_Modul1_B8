@@ -29,7 +29,7 @@ awk -F "," '{if ($7 == 2012) i[$1]+=$10} END {for (x in i) if(max<i[x]) {max=i[x
  
 b. Script AWK yang akan digunakan akan terlihat seperti ini:
 ```
-awk -F "," '{if ($1 == "United States" && $7 == 2012) j[$4]+=$10} END {for (x in j) {print j[x], x}}' /home/forfeitsch/sisop2019/prak_mod1/WA_Sales_Products_2012-14.csv | sort -nr | head -n 3 | awk '{print $2" "$3}'
+awk -F "," '{if ($1 == "United States" && $7 == 2012) j[$4]+=$10} END {for (x in j) {print j[x], x}}' ~/sisop2019/prak_mod1/WA_Sales_Products_2012-14.csv | sort -nr | head -n 3 | awk '{print $2" "$3}'
 ```
   * ```if ($1 == "United States" && $7 == 2012) j[$4]+=$10``` untuk menghitung quantity di negara United States (output dari soal 2a) pada tahun 2012
   * ```sort -nr``` untuk mengurutkan dari yang terbanyak
@@ -38,7 +38,7 @@ awk -F "," '{if ($1 == "United States" && $7 == 2012) j[$4]+=$10} END {for (x in
   
 c. Script AWK yang akan digunakan akan terlihat seperti ini:
 ```
-awk -F "," '{if ($1 == "United States" && $7 == 2012 && ($4 == "Personal Accessories" || $4 == "Camping Equipment" || $4 == "Outdoor Protection")) k[$6]+=$10} END {for (x in k) {print k[x], x}}' /home/forfeitsch/sisop2019/prak_mod1/WA_Sales_Products_2012-14.csv | sort -nr | head -n 3 | awk '{print $2" "$3}'
+awk -F "," '{if ($1 == "United States" && $7 == 2012 && ($4 == "Personal Accessories" || $4 == "Camping Equipment" || $4 == "Outdoor Protection")) k[$6]+=$10} END {for (x in k) {print k[x], x}}' ~/sisop2019/prak_mod1/WA_Sales_Products_2012-14.csv | sort -nr | head -n 3 | awk '{print $2" "$3}'
 ```
   * ```if ($1 == "United States" && $7 == 2012 && ($4 == "Personal Accessories" || $4 == "Camping Equipment" || $4 == "Outdoor Protection"``` untuk menghitung quantity product dari product-product line hasil jawaban dari soal 2b
   * ```sort -nr``` untuk mengurutkan dari yang terbanyak
