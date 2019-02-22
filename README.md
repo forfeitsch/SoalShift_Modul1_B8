@@ -4,16 +4,6 @@
 1. Anda diminta tolong oleh teman anda untuk mengembalikan filenya yang telah dienkripsi oleh seseorang menggunakan bash script, file yang dimaksud adalah nature.zip. Karena terlalu mudah kalian memberikan syarat akan membuka seluruh file tersebut jika pukul 14:14 pada tanggal 14 Februari atau hari tersebut adalah hari jumat pada bulan Februari.
 > Hint: Base64, Hexdump
 
-Observasi : Kami melakukan pengamatan terhadap soal ini, lalu kami dapatkan bahwa soal ini bermaksud untuk kita mengekstrak folder lalu men-decrypt file tersebut. Lalu script ini akan dijalankan sesuai dengan crontab yang ditentukan dalam soal
-	
-Pertama, kami melakukan cd ke folder soal1, lalu kami unzip file nature.zip dan cd lagi ke folder yang telah di unzip tersebut
-	
-Kedua, kami melakukan looping, agar dapat membaca semua file dalam folder yang ter-unzip tersebut. Lalu melakukan decrypting dengan base64 untuk seluruh "$file" dilakukan bersamaan (menggunakan pipe) untuk merebuild dengan hexdump, karena hasil dari decrypt base64 tadi adalah hexcode dan memasukkan hasil rebuild tadi ke "newfile", lalu kita menghapus file yg belum terenkripsi tadi lalu menggantikannya dengan "newfile" atau file yang telah ter-decrypt. 
-	
-Ketiga kami melakukan pengaturan crontab, untuk mengatur waktu menjalankan script  tersebut.
-	Hasilnya akan seperti [ini](https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal1.sh)
-	
-
 2. Anda merupakan pegawai magang pada sebuah perusahaan retail, dan anda diminta untuk memberikan laporan berdasarkan file WA_Sales_Products_2012-14.csv. Laporan yang diminta berupa:
    * Tentukan negara dengan penjualan(quantity) terbanyak pada tahun 2012.
    * Tentukan tiga product line yang memberikan penjualan(quantity) terbanyak pada soal poin a.
@@ -60,7 +50,7 @@ done
 echo $newPass > $fname
 ```
 
-* Dari langkah-langkah di atas, akan terbentuk code seperti [ini](https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal1.sh)
+* Dari langkah-langkah di atas, akan terbentuk code seperti [ini].(https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal3.sh)
 
 4. Lakukan backup file syslog setiap jam dengan format nama file “jam:menit tanggal-bulan-tahun”. Isi dari file backup terenkripsi dengan konversi huruf (string manipulation) yang disesuaikan dengan jam dilakukannya backup misalkan sebagai berikut:
         - Huruf b adalah alfabet kedua, sedangkan saat ini waktu menunjukkan pukul 12, sehingga huruf b diganti dengan huruf alfabet yang memiliki urutan ke 12+2 = 14.
@@ -74,7 +64,3 @@ echo $newPass > $fname
         - Jumlah field (number of field) pada baris tersebut berjumlah kurang dari 13.
         - Masukkan record tadi ke dalam file logs yang berada pada direktori /home/[user]/modul1.
         - Jalankan script tadi setiap 6 menit dari menit ke 2 hingga 30, contoh 13:02, 13:08, 13:14, dst.
-
-Observasi : Kami melakukan pengamatan terhadap soal ini, lalu kami dapatkan bahwa soal ini bermaksud untuk kita menyimpan record dalam syslog dan melakukan beberapa gubahan seperti string dari log tersebut tidak mengandung "sudo" dan membuat case sensitive, membatasi jumlah field kurang dari 13. lalu memasukkan record tadi ke dalam direktori /home/[user]/modul1 dan menjalankan script tersebut dengan waktu 6 menit, dari menit ke 2.
-
-	Untuk penyelesaiannya, menggunakan awk, lalu memasukkan syarat - syarat di atas ke dalam fungsi dan hasilnya seperti [ini](https://github.com/forfeitsch/SoalShift_Modul1_B8/blob/master/soal5.sh)
